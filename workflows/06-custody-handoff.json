@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Custody Chain, a chain-of-custody handoff page for shipped goods. Token name: Custody Chain. Token symbol: CSTD. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. CustodyChain lets a shipper open a consignment for a bytes32 manifest hash, then the current holder offer the next leg by naming the next holder and paying a fixed CSTD carriage fee, which that holder collects when it accepts custody; the holder who made an offer may withdraw it and reclaim the fee if the named holder has not accepted within exactly 7 days. Anyone reads the current holder and the recorded legs. Deploy on Sepolia and publish a page to open a consignment, offer a leg, accept custody, withdraw a stale offer and read a consignment trail.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Only the current holder offers a leg and only the named holder accepts it, so every transfer is sent by a party with goods or a carriage fee at risk. The manifest hash identifies a consignment publicly; it is not a shipment record.",
+    "draft": {
+      "objective": "Build and review CSTD and CustodyChain, deploy them on Sepolia, then publish the live chain-of-custody website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "custody-chain",
+      "contracts": ["CustodyChainToken", "CustodyChain"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply CSTD and the consignment handoff trail."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test holder authorization, carriage fees, accept and withdraw paths, and trail reads."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review custody transfer and fee accounting."},
+        {"skill": "frontend-for-contract", "objective": "Build the live consignment, handoff and custody-trail page."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "custody-chain", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

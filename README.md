@@ -16,7 +16,7 @@ Ten ready-to-check `workflow.open` request bodies for distinct Sepolia product s
 
 **License Ledger — `workflows/05-content-license.json`.** LICE records fixed-price purchases of a creator’s hashed license terms and work hash, retaining issued receipts after a listing is deactivated. Buyers and creators act for their own commercial reason.
 
-**Access Pass — `workflows/06-subscription-pass.json`.** PASS is a renewable access-pass product: publishers define plans and subscribers pay to start or extend an onchain expiry. No keeper is necessary because current validity is computed when queried.
+**Custody Chain — `workflows/06-custody-handoff.json`.** CSTD logs a consignment’s chain of custody: the current holder offers the next leg and pays its carriage fee, the named holder collects that fee by accepting custody, and an offer left unaccepted for seven days can be withdrawn. Every leg is a transfer between two named parties, not a recurring charge.
 
 **Consent Receipt — `workflows/07-consent-receipt.json`.** CNST creates subject-controlled, revocable consent receipts bound to a policy hash and expiry. It keeps only a public hash onchain and makes the subject, not an operator, responsible for granting or revoking.
 
@@ -28,7 +28,9 @@ Ten ready-to-check `workflow.open` request bodies for distinct Sepolia product s
 
 ## What was checked for duplicates
 
-Product selection was checked on 2026-10-02 against the public [IMD publications API](https://api.imd.fun/publications) (490 returned items) and the [identity-md-launches organization](https://github.com/identity-md-launches) (five GitHub API result pages). Excluded existing shapes included linear vesting/claiming, allowlist claims, tip jars and fee splitters, crowdfunding and quadratic funding, generic escrow, streaming payments, staking, auctions, event check-in, NFT rental/pawn, guild dues, savings circles, milestone funding, credentials/badges, subscription-adjacent access products, and many Uniswap hooks. Catalogues change; rerun the check before paying for a workflow.
+Product selection was checked on 2026-10-02 against the public [IMD publications API](https://api.imd.fun/publications) (521 returned items) and the [identity-md-launches organization](https://github.com/identity-md-launches) (512 repositories over six GitHub API result pages). The per-keyword `?q=` searches behind it, with every publication they returned, are recorded in `results.json` under `publicationSearches`.
+
+No shipped body is a linear vesting or claim page, an allowlist claim, a tip jar or fee splitter, a crowdfunding or quadratic-funding round, a general-purpose escrow, a payment stream, a staking vault, an auction, an event check-in, an NFT rental or pawn, a guild-dues or savings-circle pot, a milestone fund, a soulbound badge collection, a subscription or access pass, or a Uniswap hook. Skill Credential is the one shipped shape close to a live launch: the Badges (BDGE) launch, workflow `760a7259`, mints permissionless ERC-721 badge types for an anti-spam burn, with no expiry and holder-side burning, while SKIL mints nothing and keeps issuer-scoped records bound to an evidence hash and a `uint256` expiry that every status read is measured against. Catalogues change; rerun the check before paying for a workflow.
 
 ## Check the bodies
 
