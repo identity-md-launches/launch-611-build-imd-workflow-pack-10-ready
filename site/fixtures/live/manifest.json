@@ -1,0 +1,146 @@
+{
+  "retrievedAt": "2026-10-02T22:11:04.970340+00:00",
+  "endpoint": "https://api.imd.fun/publications",
+  "queries": [
+    {
+      "q": "custody chain",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/custody-chain-page-1.json"
+      ]
+    },
+    {
+      "q": "chain of custody",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/chain-of-custody-page-1.json"
+      ]
+    },
+    {
+      "q": "consignment",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/consignment-page-1.json"
+      ]
+    },
+    {
+      "q": "shipment",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/shipment-page-1.json"
+      ]
+    },
+    {
+      "q": "freight",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/freight-page-1.json"
+      ]
+    },
+    {
+      "q": "cargo",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/cargo-page-1.json"
+      ]
+    },
+    {
+      "q": "courier",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/courier-page-1.json"
+      ]
+    },
+    {
+      "q": "logistics",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/logistics-page-1.json"
+      ]
+    },
+    {
+      "q": "bill of lading",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/bill-of-lading-page-1.json"
+      ]
+    },
+    {
+      "q": "proof of delivery",
+      "count": 0,
+      "pages": [
+        "site/fixtures/live/proof-of-delivery-page-1.json"
+      ]
+    },
+    {
+      "q": "custody",
+      "count": 6,
+      "pages": [
+        "site/fixtures/live/custody-page-1.json"
+      ]
+    },
+    {
+      "q": "handover",
+      "count": 2,
+      "pages": [
+        "site/fixtures/live/handover-page-1.json"
+      ]
+    },
+    {
+      "q": "handoff",
+      "count": 115,
+      "pages": [
+        "site/fixtures/live/handoff-page-1.json",
+        "site/fixtures/live/handoff-page-2.json",
+        "site/fixtures/live/handoff-page-3.json",
+        "site/fixtures/live/handoff-page-4.json",
+        "site/fixtures/live/handoff-page-5.json",
+        "site/fixtures/live/handoff-page-6.json"
+      ]
+    },
+    {
+      "q": "subscription",
+      "count": 2,
+      "pages": [
+        "site/fixtures/live/subscription-page-1.json"
+      ]
+    },
+    {
+      "q": "badge",
+      "count": 9,
+      "pages": [
+        "site/fixtures/live/badge-page-1.json"
+      ]
+    },
+    {
+      "q": "credential",
+      "count": 17,
+      "pages": [
+        "site/fixtures/live/credential-page-1.json"
+      ]
+    },
+    {
+      "q": "escrow",
+      "count": 17,
+      "pages": [
+        "site/fixtures/live/escrow-page-1.json"
+      ]
+    },
+    {
+      "q": "deposit",
+      "count": 43,
+      "pages": [
+        "site/fixtures/live/deposit-page-1.json",
+        "site/fixtures/live/deposit-page-2.json",
+        "site/fixtures/live/deposit-page-3.json"
+      ]
+    },
+    {
+      "q": "repair",
+      "count": 5,
+      "pages": [
+        "site/fixtures/live/repair-page-1.json"
+      ]
+    }
+  ]
+}

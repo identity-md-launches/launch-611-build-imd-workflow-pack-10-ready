@@ -2,6 +2,14 @@
 
 > Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.
 
+## 2026-10-03
+
+- **Escrow overlap and README exclusion list.** Checked the live `escrow`, `deposit`, and `repair` publications against bodies 02, 08, and 09. The previous claim that Skill Credential was the only body close to a live launch was false. README now names Two Party Escrow (ESCR), Handshake (SHAKE), and Arbiter (ARBT), and explains the reservation, repair-completion, and kit-return gates that distinguish the three shipped deposit flows. The accepted workflow bodies were left intact.
+- **Live response evidence.** Saved all 26 raw response pages for the 19 `GET /publications?q=` searches under `site/fixtures/live/`, with query-to-file paths and retrieval time in `manifest.json`. `results.json` points to that manifest, so the catalogue evidence can be reviewed offline.
+- **Handoff keyword.** Added the exact `handoff` search to `results.json` and `check-workflows.mjs`: 115 returned publications over six pages, none a custody or consignment product. Added `escrow`, `deposit`, and `repair` searches for the overlapping deposit bodies.
+- **Dated search record.** The checker still copies a dated catalogue record into each report; it does not claim that `--validate` reruns the live searches. The saved response pages and manifest now make the source and retrieval time inspectable.
+- **Free checks.** Ran the local validator and the live `POST /requests/check` for all ten bodies. The final `results.json` records HTTP 200, `judged: true`, no blockers, and no suggestions for each, including Custody Chain (06). One earlier run briefly returned `evaluation_unavailable` for Warranty Bond (04); the repeat check cleared it without changing that body.
+
 ## 2026-10-02
 
 Replaced the Access Pass body, re-checked the pack against the live API, and corrected the duplicate-check section of the README.

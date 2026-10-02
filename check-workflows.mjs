@@ -13,13 +13,15 @@ const REQUIRED_SUPPLY = "1,000,000,000";
 
 /**
  * The publication searches behind the pack's duplicate check, as they answered on the date below.
- * Each entry is one GET https://api.imd.fun/publications?q=<query>; "matches" names every returned
- * publication that mentions the keyword, with why it is not the same product. Catalogues change, so
- * this is a dated record rather than a live assertion: rerun the queries before paying for a body.
+ * Each entry is one GET https://api.imd.fun/publications?q=<query>; "matches" summarizes
+ * relevant results. The complete response pages are saved under site/fixtures/live/ and indexed
+ * by its manifest. Catalogues change, so rerun the queries before paying for a body.
  */
 const PUBLICATION_SEARCHES = {
-  ranOn: "2026-10-02",
+  ranOn: "2026-10-03",
+  timezone: "Europe/Berlin",
   endpoint: "https://api.imd.fun/publications?q=",
+  snapshotManifest: "site/fixtures/live/manifest.json",
   queries: [
     { for: "workflows/06-custody-handoff.json", q: "custody chain", count: 0, matches: [] },
     { for: "workflows/06-custody-handoff.json", q: "chain of custody", count: 0, matches: [] },
@@ -52,6 +54,14 @@ const PUBLICATION_SEARCHES = {
       ]
     },
     {
+      for: "workflows/06-custody-handoff.json",
+      q: "handoff",
+      count: 115,
+      matches: [
+        "All 115 items across six saved pages concern launch/deployment handoffs, frontend handoff files, or unrelated work; none is a chain-of-custody or consignment product"
+      ]
+    },
+    {
       for: "retired: the former workflows/06-subscription-pass.json",
       q: "subscription",
       count: 2,
@@ -79,6 +89,34 @@ const PUBLICATION_SEARCHES = {
         "workflow:b752de71 (CHKN #309, live) — EventCheckin, which states its attendance records are not credentials",
         "workflow:760a7259 (BDGE #288, live) — as above, SoulboundBadges states its badges are not credentials",
         "workflow:bcfbc7c4, workflow:54934f3a, workflow:20270aa7, workflow:0dfa414d, workflow:693be293, launch:9046f91e and nine job publications — matched on frontend boilerplate about wallet or operator credentials"
+      ]
+    },
+    {
+      for: "workflows/02-reservation-deposit.json; workflows/08-repair-deposit.json; workflows/09-returnable-kit.json",
+      q: "escrow",
+      count: 17,
+      matches: [
+        "launch:1237279a (ESCR #61, live) — generic buyer-funded escrow: buyer release, seller refund, buyer reclaim after deadline; closest to RPR, which gates reclaim on the repairer's completion state",
+        "workflow:a75f3c3f (SHAKE #82, live) — buyer release, seller claim after deadline, and pre-deadline dispute split; none of the three deposit bodies grants the counterparty a timeout claim",
+        "workflow:bc727928 (ARBT, live) — seller delivery mark and buyer release, plus third-party arbitration and multiple timeout paths; RPR has no arbiter or dispute path",
+        "The other 14 returned publications cover other escrow uses or mention the term in unrelated work; full bodies are in the saved response page"
+      ]
+    },
+    {
+      for: "workflows/02-reservation-deposit.json; workflows/08-repair-deposit.json; workflows/09-returnable-kit.json",
+      q: "deposit",
+      count: 43,
+      matches: [
+        "launch:1237279a (ESCR #61, live) — generic two-party deposit, compared with RSVR, RPR and KIT in the escrow search above",
+        "Other results include vaults, streams, vesting, savings, and unrelated uses of deposit; none describes a host-created reservation slot, repair completion gate, or kit-return confirmation"
+      ]
+    },
+    {
+      for: "workflows/08-repair-deposit.json",
+      q: "repair",
+      count: 5,
+      matches: [
+        "The five returned publications concern a UI request, SwarmWorld, Proof Of Work, and VolatilityGuard work; none is an appliance-repair deposit product"
       ]
     }
   ]
