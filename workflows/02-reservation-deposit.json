@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Reserve Deposit, a refundable reservation-deposit page. Token name: Reserve Deposit. Token symbol: RSVR. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. SlotReserve lets a host publish a bytes32 slot identifier, deposit and deadline; a guest reserves by funding the deposit, the host confirms attendance, and the guest reclaims an unconfirmed reservation after its deadline. Deploy on Sepolia and publish a page to list, reserve, confirm and reclaim slots.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Hosts create slots, guests reserve or reclaim, and hosts confirm; each caller has a direct economic reason to pay gas.",
+    "draft": {
+      "objective": "Build and review RSVR and SlotReserve, deploy them on Sepolia, then publish the live reservation-deposit website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "reserve-deposit",
+      "contracts": ["ReserveDepositToken", "SlotReserve"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement the fixed-supply token and refundable reservation state machine."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test one reservation per slot, deadline boundaries, payouts, and authorization."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review the reservation contracts."},
+        {"skill": "frontend-for-contract", "objective": "Build the live reservation page with wallet actions and status."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "reserve-deposit", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

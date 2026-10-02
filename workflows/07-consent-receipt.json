@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Consent Receipt, a revocable consent-record page. Token name: Consent Receipt. Token symbol: CNST. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. ConsentReceipt lets a subject grant a service a consent receipt bound to a bytes32 policy hash and uint256 expiry; the subject may revoke it, and anyone can verify its current status without exposing document contents. Deploy on Sepolia and publish a page to issue, revoke and verify consent receipts.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Subjects issue and revoke their own consents; verifiers only read state, and expiry is evaluated on reads without an operator.",
+    "draft": {
+      "objective": "Build and review CNST and ConsentReceipt, deploy them on Sepolia, then publish the live consent-receipt website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "consent-receipt",
+      "contracts": ["ConsentReceiptToken", "ConsentReceipt"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply CNST and privacy-preserving consent receipt records."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test subject-only revocation, policy binding, expiry and status reads."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review authorization and record immutability."},
+        {"skill": "frontend-for-contract", "objective": "Build the live consent issuance, revocation and verification page."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "consent-receipt", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Kit Return, a returnable-equipment deposit page. Token name: Kit Return. Token symbol: KIT. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. KitReturn lets an owner register a bytes32 kit hash and deposit amount, a borrower lock that deposit to take custody, and the owner confirm return to refund the borrower; the borrower can reclaim if the owner does not confirm within exactly 7 days after the borrower marks returned. Deploy on Sepolia and publish a page to register kits, borrow, mark return and settle deposits.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Owners and borrowers each submit the transaction that protects their kit or deposit; deadline rights are called by the party with funds at risk.",
+    "draft": {
+      "objective": "Build and review KIT and KitReturn, deploy them on Sepolia, then publish the live equipment-return website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "kit-return",
+      "contracts": ["KitReturnToken", "KitReturn"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply KIT and the returnable-kit deposit workflow."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test custody, authorization, return windows, refunds, and frozen terminal states."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review all kit and deposit transitions."},
+        {"skill": "frontend-for-contract", "objective": "Build the live kit registration, borrowing and return page."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "kit-return", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

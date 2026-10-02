@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Warranty Bond, a product-warranty bond page. Token name: Warranty Bond. Token symbol: WRNT. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. WarrantyBond lets a seller post a bond for a bytes32 product serial and expiry, a buyer register ownership, and the buyer open a claim before expiry; the seller accepts a claim to pay the bond or the buyer withdraws an uncontested claim exactly 7 days after opening it. Deploy on Sepolia and publish a page to post bonds, register products and manage claims.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Sellers fund bonds, buyers register and claim, and either party calls resolution because the call protects or releases its own funds.",
+    "draft": {
+      "objective": "Build and review WRNT and WarrantyBond, deploy them on Sepolia, then publish the live warranty-bond website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "warranty-bond",
+      "contracts": ["WarrantyBondToken", "WarrantyBond"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply WRNT and bonded warranty claims."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test serial uniqueness, ownership, claim windows, payout and refusal paths."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review all warranty state transitions."},
+        {"skill": "frontend-for-contract", "objective": "Build the live product warranty page with transaction-safe claim states."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "warranty-bond", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Access Pass, a renewable onchain subscription page. Token name: Access Pass. Token symbol: PASS. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. AccessPass lets a publisher create a bytes32 plan with a fixed PASS price and uint256 duration; subscribers buy or renew their own pass, and anyone reads whether an address is active at the current timestamp. Deploy on Sepolia and publish a page to create plans, subscribe, renew and verify access.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Publishers create plans and subscribers renew to keep access; expiry is evaluated when read, so no automated caller is needed.",
+    "draft": {
+      "objective": "Build and review PASS and AccessPass, deploy them on Sepolia, then publish the live subscription-pass website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "access-pass",
+      "contracts": ["AccessPassToken", "AccessPass"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply PASS and renewable publisher plans."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test plan ownership, duration, renewal boundaries, payment, and active-pass reads."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review subscription accounting and authorization."},
+        {"skill": "frontend-for-contract", "objective": "Build the live wallet-connected plan and renewal page."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "access-pass", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

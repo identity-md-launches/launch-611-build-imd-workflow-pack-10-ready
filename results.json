@@ -1,0 +1,1310 @@
+{
+  "generatedAt": "2026-10-02T18:26:38.727Z",
+  "endpoint": "https://api.imd.fun/requests/check",
+  "mode": "remote-check",
+  "notice": "Experimental, commissioned as a test of the IMD swarm. It may not work as described. Read the code, start with small amounts, no warranty.",
+  "validations": [
+    {
+      "file": "workflows/01-invoice-settlement.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1063
+    },
+    {
+      "file": "workflows/02-reservation-deposit.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1100
+    },
+    {
+      "file": "workflows/03-shared-expense.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1100
+    },
+    {
+      "file": "workflows/04-warranty-bond.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1152
+    },
+    {
+      "file": "workflows/05-content-license.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1127
+    },
+    {
+      "file": "workflows/06-subscription-pass.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1092
+    },
+    {
+      "file": "workflows/07-consent-receipt.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1099
+    },
+    {
+      "file": "workflows/08-repair-deposit.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1117
+    },
+    {
+      "file": "workflows/09-returnable-kit.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1182
+    },
+    {
+      "file": "workflows/10-credential-verifier.json",
+      "valid": true,
+      "faults": [],
+      "characters": 1143
+    }
+  ],
+  "results": [
+    {
+      "file": "workflows/01-invoice-settlement.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "stated",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/02-reservation-deposit.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/03-shared-expense.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "stated",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/04-warranty-bond.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "stated",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/05-content-license.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/06-subscription-pass.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/07-consent-receipt.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/08-repair-deposit.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/09-returnable-kit.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "stated",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "stated",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "workflows/10-credential-verifier.json",
+      "outcome": "responded",
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "response": {
+            "action": "workflow.open",
+            "kind": "company",
+            "plan": [
+              {
+                "title": "Build and test the contracts",
+                "short": "contracts",
+                "skill": "build-contract-project"
+              },
+              {
+                "title": "Test them, as another agent",
+                "short": "tests",
+                "skill": "write-foundry-tests"
+              },
+              {
+                "title": "Audit them, as another agent",
+                "short": "review",
+                "skill": "adversarial-review"
+              },
+              {
+                "title": "Deploy on Sepolia",
+                "short": "deploy"
+              },
+              {
+                "title": "Build the site against the live contracts",
+                "short": "site",
+                "skill": "frontend-for-contract"
+              },
+              {
+                "title": "Host the site on IPFS, source on GitHub",
+                "short": "hosting"
+              }
+            ],
+            "facts": [
+              {
+                "id": "what",
+                "label": "What each contract does",
+                "state": "stated",
+                "required": false
+              },
+              {
+                "id": "access",
+                "label": "Who can call what",
+                "state": "stated",
+                "required": false,
+                "assumed": "Assumed: an owner who can change settings, and anyone for everything else."
+              },
+              {
+                "id": "numbers",
+                "label": "The numbers that matter",
+                "state": "unknown",
+                "required": false,
+                "assumed": "The builders will choose them and write them in the README."
+              },
+              {
+                "id": "token_name",
+                "label": "Token name",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "token_symbol",
+                "label": "Token symbol",
+                "state": "stated",
+                "required": true
+              },
+              {
+                "id": "site_pages",
+                "label": "What the site shows",
+                "state": "unknown",
+                "required": false
+              },
+              {
+                "id": "site_wallet",
+                "label": "What a connected wallet can do",
+                "state": "unknown",
+                "required": false,
+                "assumed": "Assumed: the site reads the contracts and offers their main actions."
+              },
+              {
+                "id": "token_supply",
+                "label": "Supply: 1,000,000,000 with 18 decimals, minted once",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_rules",
+                "label": "Transfers: plain, with no fees, limits, pausing or minting",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_split",
+                "label": "Split: 10% to the swarm, the other 90% is yours: 80% into the pool unless you choose otherwise, the rest to your wallet",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_pool",
+                "label": "Pool: paired with ETH, opening at a 20 ETH market cap",
+                "state": "fixed",
+                "required": false
+              },
+              {
+                "id": "token_trading_fee",
+                "label": "Trading fee: 1.25% of every trade: 1% to you, 0.25% to IMD, claimable any time",
+                "state": "fixed",
+                "required": false
+              }
+            ],
+            "judged": true,
+            "blockers": [],
+            "suggestions": []
+          }
+        }
+      ]
+    }
+  ]
+}

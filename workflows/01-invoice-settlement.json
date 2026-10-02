@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Invoice Flow, a payable-invoice page. Token name: Invoice Flow. Token symbol: INVC. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. InvoiceBook lets a payee create an invoice for a payer, amount, due time and bytes32 memo; the named payer pays before expiry, or the payee cancels an unpaid invoice. Deploy on Sepolia and publish a wallet-connected page to create, pay, cancel and inspect invoices.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Every constructor may use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Each state change is called and gas-paid by the payee or payer because it directly creates, settles or cancels that party's invoice.",
+    "draft": {
+      "objective": "Build and review INVC and InvoiceBook, deploy them on Sepolia, then publish the live invoice-settlement website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "invoice-flow",
+      "contracts": ["InvoiceFlowToken", "InvoiceBook"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement the fixed-supply token and InvoiceBook as a Foundry project."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test authorization, expiry, exact transfers, and terminal invoice states."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review both contracts and tests."},
+        {"skill": "frontend-for-contract", "objective": "Build the deployed-address invoice page with clear transaction states."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "invoice-flow", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

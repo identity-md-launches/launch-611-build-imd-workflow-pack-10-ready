@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Tab Split, a shared-expense settlement page. Token name: Tab Split. Token symbol: TAB. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. SharedTab lets an organizer open a bill with a bytes32 label and deadline, add named participants with fixed uint256 shares, and lets each participant pay only their own share; the organizer withdraws only after every share is paid, or participants reclaim after expiry. Deploy on Sepolia and publish a page to open, join, pay and settle tabs.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Organizers and participants invoke their own economically useful actions; no offchain keeper is assumed.",
+    "draft": {
+      "objective": "Build and review TAB and SharedTab, deploy them on Sepolia, then publish the live shared-expense website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "tab-split",
+      "contracts": ["TabSplitToken", "SharedTab"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply TAB and the per-participant tab accounting."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test share totals, duplicate payment refusal, settlement, refunds, and expiry."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review the token and SharedTab."},
+        {"skill": "frontend-for-contract", "objective": "Build the live shared-tab page with connected-wallet payment flows."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "tab-split", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

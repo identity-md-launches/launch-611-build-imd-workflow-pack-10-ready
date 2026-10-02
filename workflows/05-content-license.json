@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build License Ledger, a direct content-licensing page. Token name: License Ledger. Token symbol: LICE. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. LicenseLedger lets a creator list a bytes32 work hash with a fixed LICE price and bytes32 terms hash; any buyer purchases one non-transferable license receipt, and the creator may deactivate future sales without affecting issued receipts. Deploy on Sepolia and publish a page to list works, buy licenses and verify receipts.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Creators list and deactivate their own work; buyers pay to obtain their own receipt, so all state transitions have a caller incentive.",
+    "draft": {
+      "objective": "Build and review LICE and LicenseLedger, deploy them on Sepolia, then publish the live content-license website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "license-ledger",
+      "contracts": ["LicenseLedgerToken", "LicenseLedger"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply LICE and creator-owned license listings."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test ownership, terms binding, exact price payment, receipt uniqueness, and deactivation."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review the payment and receipt rules."},
+        {"skill": "frontend-for-contract", "objective": "Build the live licensing page for listing, purchasing and verification."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "license-ledger", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}

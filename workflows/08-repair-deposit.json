@@ -1,0 +1,23 @@
+{
+  "action": "workflow.open",
+  "input": {
+    "request": "Build Repair Deposit, an appliance-repair deposit page. Token name: Repair Deposit. Token symbol: RPR. The fixed total supply is 1,000,000,000 tokens with 18 decimals (1,000,000,000 * 10^18 base units), minted once to the deployer. RepairDeposit lets a customer open a job for a repairer with a bytes32 device hash, deposited RPR amount and deadline; the repairer marks work complete, the customer releases payment, or the customer reclaims an uncompleted job after deadline. Deploy on Sepolia and publish a page to open jobs, mark completion, release or reclaim.",
+    "context": "Sepolia only (chainId 11155111); GitHub and IPFS are approved. Include Foundry tests and an independent adversarial review. Constructors use only address, uint256, bool or bytes32 arguments; the launch token constructor is zero-argument. foundry.toml must set bytecode_hash = \"none\". No proxy, delegatecall or selfdestruct. Customer and repairer call the actions that determine their own payment or refund; no automatic settlement is promised.",
+    "draft": {
+      "objective": "Build and review RPR and RepairDeposit, deploy them on Sepolia, then publish the live repair-deposit website.",
+      "shape": "chain",
+      "onchain": "evm_project",
+      "github": true,
+      "ipfs": "repair-deposit",
+      "contracts": ["RepairDepositToken", "RepairDeposit"],
+      "references": ["solidity-security-review"],
+      "steps": [
+        {"skill": "build-contract-project", "objective": "Implement fixed-supply RPR and customer-funded repair job escrow."},
+        {"skill": "write-foundry-tests", "paths": ["test"], "objective": "Test participants, completion, release, deadline refunds, and exact accounting."},
+        {"skill": "adversarial-review", "objective": "Independently adversarially review repair deposit transitions."},
+        {"skill": "frontend-for-contract", "objective": "Build the live repair-job page with all wallet actions."}
+      ]
+    },
+    "permissions": {"github": true, "ipfs": "repair-deposit", "onchain": {"kind": "evm_project", "chainId": 11155111}}
+  }
+}
